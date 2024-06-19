@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 計算BMI -->
+    <!-- BMI=體重/身高(m)的平方 -->
+    <!-- BMI直到小數點第二位 -->
+    <script>
+        //步驟可以先註解文字化描述出來
+        // 1.建立height
+        let height = 1.53;
+        // 2.建立weight
+        let weight = 55;
+        // 3.計算BMI
+        let BMI = weight / (height*height);   //運算上55/1.53/1.53也OK
+        // log呈現
+        console.log(BMI);
+        console.log(BMI.toFixed(2));
+        console.log((weight / height / height).toFixed(2));
+        console.log(Number(BMI.toFixed(2)));
+        console.log(`我的BMI:${Number(BMI.toFixed(2))}`);
+
+        //取小數點後兩位並且轉換BMI為number
+        BMI = BMI.toFixed(2);
+        BMI = Number(BMI);
+        console.log(BMI);
+
+        //測試用BMI
+        // BMI=99
+
+        // 檢查BMI落在哪個區間並顯示結果
+        // 以下一個if一個if的 稱之為「單層條件檢查」
+        // 1. 檢查BMI是否小於18.5
+        if (BMI < 18.5) {
+            // 檢查條件成立
+            console.log(`體重過輕`);
+        }
+        // 2. 檢查18.5<=BMI<24
+        // 區間資料使用交集邏輯運算子&&(AND)
+        if (BMI>=18.5 && BMI<24) {
+            console.log(`正常範圍`);
+        }
+        // 3. 檢查24<=BMI<27
+        if (BMI>=24 && BMI<27) {
+            console.log(`異常範圍(過重)`);
+        }
+        // 4. 檢查27<=BMI<30
+        if (BMI>=27 && BMI<30) {
+            console.log(`異常範圍(輕度肥胖)`);
+        }
+        //5. 檢查30<=BMI<35
+        if (BMI>=30 && BMI<35) {
+            console.log(`異常範圍(中度肥胖)`);
+        }
+        // 6. 檢查BMI>=35
+        if (BMI>=35) {
+            console.log(`異常範圍(重度肥胖)`);
+        }
+    </script>
+</body>
+
+</html>

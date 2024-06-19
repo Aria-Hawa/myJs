@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- p要加或不加都可以?? =>目前測試上都長一樣 -->
+    <!-- <p>js第二堂課0619</p> -->
+    js第二堂課0619
+    <p>第一段落</p>
+    <h2>變數宣告</h2>
+    <script>
+        // 變數宣告語法3種
+        // 建立變數的語法
+        // var 變數名稱;
+        var price;  //建立price變數名稱
+        price=100   //給值
+        var qty=5   //建立qty變數的同時，給值
+
+        console.log('單價:'+price);
+        console.log('數量:'+qty);
+        console.log('price'+price);
+        console.log('qty='+qty)
+        console.log('小計:'+price*qty); //參照line19,line20的變數
+        qty=10 //此時若打成var qty=10 雖然小計一樣會是1000，但只是因為log去抓最近的變數
+        console.log('小計:'+price*qty); //參照line19,此時變成參照line27的變數
+        // 證明，var允許同一個檔案中的變數"重複宣告" =>不嚴謹宣告
+
+        // let 變數名稱;
+        var price;  //建立price變數名稱
+        price=100   //給值
+        let qty01=5   //建立qty變數的同時，給值
+
+        console.log('小計01:'+price*qty01);
+        // let qty01=6 =>此行會顯示錯誤訊息!不可重複宣告
+        qty01=10
+        console.log('小計01:'+price*qty01);
+        // 證明，let不允許同一個檔案中的變數"重複宣告" =>嚴謹宣告
+
+        // const
+        var price;  //建立price變數名稱
+        price=100   //給值
+        const qty02=5   //建立qty變數的同時，給值
+
+        console.log('小計02:'+price*qty02);
+        // qty02=10 =>此行會顯示錯誤訊息!不可更改變數代表這就是常數
+        // 證明，const一旦建立無法更改變數值 =>常數 ex:使用在5%稅額上
+
+        // 傳統串接方式 =>一堆加號+++++
+        console.log('單價:'+price+'元');
+        console.log('數量:'+qty01+'元');
+        console.log('小計:'+price*qty01+'元')
+
+        // 字串"字面值"串接資料方式(頭尾加上反引號``)
+        // 遇到變數或運算式要加上${變數或運算式}
+        console.log(`單價:${price}元`);
+        console.log(`數量:${qty01}元`);
+        console.log(`小計:${price*qty01}元`)
+
+    </script>
+</body>
+</html>

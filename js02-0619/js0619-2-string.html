@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 字串變數 -->
+    <script>
+        let strName="木子李";
+        console.log(`毛孩名字:${strName}`)
+        strName=7 //字串便數值沒有不行，只是強制轉換
+        console.log(`毛孩年紀:${strName}`)
+    </script>
+
+    <!-- // 駝峰式命名 -->
+    <!-- 大駝峰:每個單字字首大寫 =>CatName -->
+    <!-- 小駝峰:第二個單字開始字首大寫 =>catName -->
+    <script>
+        let catName="小李";
+        console.log(`毛孩名字:${catName}`)
+        let catAge=3    //字串便數值沒有不行，只是強制轉換
+        console.log(typeof(catAge));    //透過typeof取德catAge的資料型別
+        console.log(`毛孩年紀:${catAge}`)
+        console.log(`${catName}的年紀:${catAge}`)
+        catAge="3"
+        console.log(typeof(catAge));    //透過typeof取德catAge的資料型別
+        console.log(`${catName}5年後的年紀:${catAge+5}`);    //應證"3"已經變為string
+        console.log(`${catName}5年後的年紀:${Number(catAge)+5}`);    //要運算時，將string暫時轉換成number
+        console.log(typeof(catAge));    //驗證:剛剛只是在運算的時候"暫時"轉換而已
+        //字串真正改為數值，必須重新指派轉換結果給原來的變數
+        catAge=Number(catAge);
+        console.log(typeof(catAge)); //驗證，確實源頭也真正轉變成功
+        console.log(`${catName}5年後的年紀:${catAge+5}`);
+
+        // 浮點數=帶有小數點的資料
+        let pi=3.14;
+        let r=6;
+        let area=pi*r*r;
+        console.log(area);
+        console.log(parseInt(area));    //無條件取整數(不進位)
+        console.log(area.toFixed(2));   //取到小數點第二位(有進為)，但是!!回傳型態為spring
+        //因此要把上述再轉成數值
+        console.log(Number(area.toFixed(2)));
+        console.log(Number(area.toFixed(2))+5);    //驗證+5運算之後是否確定為number的運算
+        
+    </script>
+
+</body>
+</html>
