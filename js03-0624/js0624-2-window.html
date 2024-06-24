@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //輸入視窗(訊息視窗) =>window是強制視窗，沒有按"取消或確認"不會消失
+        let userName;
+        userName = window.prompt('請輸入您的大名');    //按下"取消"，輸出視窗會出現空值null
+
+        //輸出視窗(訊息視窗)
+        window.alert(`${userName},早安`);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //使用輸入視窗prompt
+        //輸入分數
+        // 1. 檢查是否及格
+        // 2. 檢查是否為有效分數範圍
+        // 3. 檢查是否按了取消
+
+        let score;
+        score = window.prompt('輸入分數', '0'); //prompt()後面的0是預設值的意思
+        let intScore=Number(score);     //將spring轉成number(備用)
+        //檢查是否按了取消
+        if (score === null) {
+            window.alert('請按確定鍵');
+            //檢查是否空白沒有輸入
+        } else if (score == '') {
+            window.alert('分數不可空白');
+            // 檢查是否在有效區間內
+        } else if (intScore< 0 || intScore > 100) {
+            window.alert('請輸入有效分數範圍(0~100)');
+            // 判斷是否及格
+        } else if (intScore < 60) {
+            window.alert('不及格');
+        } else if (intScore >= 60) {
+            window.alert('及格');
+        } else {
+            // 以上條件都不成立
+            window.alert('分數err')
+        }
+
+    </script>
+
+</body>
+
+</html>
