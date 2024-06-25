@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        document.write('以下if-else-if結果呈現'+'<br>')
+        // 血型判斷(大小寫判斷不同)
+        //若x直接.trim()，會去除內容前後多於空白，但null會抓不到
+        //因此邏輯變化一下，先判斷完null再轉換
+        let x = prompt('請輸入血型')
+
+        //A 和 a =>A型
+        //用if-else-if檢查
+        if (x == null) {
+            document.write('請按確認鍵');
+        } else {
+            x = x.trim();     //判斷完null再做轉換
+            if (x == '') {
+                document.write('尚未輸入血型');
+            } else if (x == 'a' || x == 'A') {
+                document.write('A型血');
+            } else if (x == 'b' || x == 'B') {
+                document.write('B型血');
+            } else if (x == 'o' || x == 'O') {
+                document.write('O型血');
+            } else if (x == 'ab' || x == "AB" || x == "aB" || x == "Ab") {
+                document.write("AB型血")
+            } else {
+                document.write('輸入錯誤')
+            }
+        }
+
+
+        //上述條件判斷結束後要換行
+        // js換行寫法
+        document.write('<br>'+'以下switch結果呈現'+'<br>');
+        
+
+
+        //用switch檢查
+        //  以下做法沒有轉換變數x的大小寫
+
+        // switch (x) {
+        //     case null:
+        //         console.log('請按確認鍵');
+        //         break;
+        //     case '':
+        //         console.log('尚未輸入血型');
+        //         break;
+        //     case 'a':
+        //     case 'A':
+        //         console.log('A型血');
+        //         break;
+        //     case 'b':
+        //     case 'B':
+        //         console.log('B型血');
+        //         break;
+        //     case 'o':
+        //     case 'O':
+        //         console.log('O型血');
+        //         break;
+        //     case 'ab':
+        //     case 'AB':
+        //     case 'aB':
+        //     case 'AB':
+        //         console.log('AB型血');
+        //         break;
+        //     default:
+        //         console.log('輸入錯誤');
+        //         break;
+        // }
+
+        // x = x.toUpperCase() //把變數x轉換成大寫，但若x為null時會出現錯誤訊息
+        // x = x.toLowerCase()    //把變數x轉換成小寫，但若x為null時會出現錯誤訊息
+
+        if (x == null) {
+            document.write('請按確認鍵');
+        } else {
+            switch (x.toUpperCase()) {
+                case null:
+                    document.write('請按確認鍵');
+                    break;
+                case '':             //先用if判斷null後，再把變數x轉換成大寫
+                    document.write('尚未輸入血型');
+                    break;
+                case 'A':
+                    document.write('A型血');
+                    break;
+                case 'B':
+                    document.write('B型血');
+                    break;
+                case 'O':
+                    document.write('O型血');
+                    break;
+                case 'AB':
+                    document.write('AB型血');
+                    break;
+                default:
+                    document.write('輸入錯誤');
+                    break;
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
