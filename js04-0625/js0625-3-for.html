@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         //請用for迴圈寫出1-5
@@ -14,21 +16,24 @@
         // console.log(4)
         // console.log(5)
 
-        // for(let i=1;i<=5;i=i+1){
-        //     console.log(i);
-        // }
+        for (let i = 1; i <= 5; i = i + 1) {
+            document.write(i);
+        }
+        document.write('<hr>')
 
+        //請用for迴圈寫出5個*
+        // document.write('*')
+        // document.write('*')
+        // document.write('*')
+        // document.write('*')
+        // document.write('*')
 
-        document.write('*')
-        document.write('*')
-        document.write('*')
-        document.write('*')
-        document.write('*')
         // i++ 代表 i=i+1
         // i-- 代表 i=i-1
-        for(let i=1;i<=5;i++){
+        for (let i = 1; i <= 5; i++) {
             document.write('*<br>');    //讓*換行 document.write('*'+'<br>')
         }
+        document.write('<hr>')
 
         // 1-10的合計
         // 以下演算過程示意
@@ -39,17 +44,22 @@
         // sum=sum+i;  //s=1+2=3
         // i=3;        //i=3
         // sum=sum+i;  //s=3+3=6
-
-        let s=0;
+        let s = 0;
+        let s1 = ''
         let i;
-        for(i=1; i<=10; i++){
-            s=s+i;  //累計
+        for (i = 1; i <= 10; i++) {
+            s = s + i;  //累計
+            s1 = s1 + i
         }
         // 迴圈結束後顯示結果
-        console.log(`i=${i}`)
-        console.log(`1+2+3+...+10=${s}`)
+        document.write(`i=${i}<br>`)
+        document.write(`1+2+3+...+10=${s}<br>`)
+        document.write(`發現迴圈外變數指派0和指派''的差異：${s1}`)
+        document.write('<hr>')
+
 
 
     </script>
 </body>
+
 </html>

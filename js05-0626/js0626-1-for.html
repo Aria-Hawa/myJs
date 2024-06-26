@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //使用迴圈的前提
+        // 1. 連續執行一樣的程式敘述
+        // 2. 找出迴圈的規律性
+        // for() =>已知執行次數
+        // for(參數1;參數2;參數3){敘述區段}
+        // 參數1：迴圈計數器變數起始值
+        // 參數2：執行迴圈的條件
+        // 參數3：每次執行迴圈後變數的增減值
+
+        //ex1:顯示連續5次Hello+換行
+        // document.write('Hello<br>');
+        // document.write('Hello<br>');
+        // document.write('Hello<br>');
+        // document.write('Hello<br>');
+        // document.write('Hello<br>');
+        // 1.連續執行5次一樣的程式
+        // 2.都是Hello<br>
+        for (let i = 1; i <= 5; i++) {
+            document.write('Hello<br>');
+        }
+        // 在js上建立html <hr>標籤
+        document.write('<hr>');
+
+        // ex2:顯示數字10~15
+        //方法1：
+        for (let i = 10; i <= 15; i = i + 1) {
+            document.write(`${i},`);
+        }
+        document.write('<hr>');
+        //方法2：
+        for (let i = 1; i <= 6; i++) {
+            document.write(`${i + 9},`);
+        }
+        document.write('<hr>');
+        //方法3： 使用迴圈外的變數顯示數字
+        let a = 10
+        for (let i = 1; i <= 6; i++) {
+            document.write(`${a},`);
+            a = a + 1;
+        }
+        document.write('<hr>');
+        //方法4： 使用迴圈外的變數顯示數字
+        let b = 10
+        for (let i = 1; i <= 6; i++) {
+            document.write(`${b++},`);
+        }
+        document.write('<hr>');
+
+
+        // 題外話
+        // c++：先顯示再加1
+        // ++c：先加1再顯示
+        let c = 10
+        for (let i = 1; i <= 6; i++) {
+            document.write(`${++c},`);
+        }
+        document.write('<hr>');
+
+        //ex3：顯示1~10的奇數
+        for (let i = 1; i <= 10; i++) {
+            if (i % 2 === 1) {  //兩數相除取餘數===0
+                document.write(`${i},`)
+            }
+        }
+        document.write('<hr>');
+        //ex4：顯示1~10的偶數，用逗號隔開，但最後一個逗號取消
+        // 方法1
+        for (let i = 1; i <= 10; i++) {
+            if (i % 2 === 0 && i < 10) {
+                document.write(`${i},`);
+            } else if (i === 10) {
+                document.write(i);
+            }
+        }
+        document.write('<hr>');
+        // 方法2
+        for (let i = 1; i <= 10; i++) {
+            if (i % 2 === 0) {
+                // 1. 先顯示值
+                document.write(i);
+                //2. 再檢查不是10的時候，顯示逗號
+                if (i != 10) {
+                    document.write(',')
+                }
+            }
+        }
+        document.write('<hr>');
+        // 方法3
+        for (let i = 1; i <= 10; i++) {
+            if (i % 2 === 0) {
+                // 1. 先檢查是否為最後一個值，不是的話顯示逗號
+                if (i != 10) {
+                    document.write(i + ',');
+                } else {
+                    // 2.最後一個值10，不顯示逗號
+                    document.write(i);
+                }
+            }
+        }
+        document.write('<hr>');
+
+        //ex5:請用一個迴圈，找出1-10中3的倍數與5的倍數 =>迴圈結束後才顯數結果
+        // 方法1
+        let x3 = ''     //建立一個存放3的倍數的變數
+        let x5 = ''     //建立一個殂放5的倍數的變數
+        for (let i = 1; i <= 10; i++) {
+            if (i % 3 === 0) {
+                x3 = x3 + i + ' '; //各別"保存"起來 (串接)
+            } else if (i % 5 === 0) {
+                x5 = x5 + i + ' ';//各別"保存"起來 (串接)
+            }
+        }
+        document.write('1-10中3的倍數: ' + x3 + '<br>')
+        document.write('1-10中5的倍數: ' + x5)
+        document.write('<hr>');
+        
+        // 方法1，但用逗號隔開且最後一個逗號不顯示
+        let x3x = ''
+        let x5x = ''
+        for (let i = 1; i <= 10; i++) {
+            if (i % 3 === 0) {
+                if (i != 9) {
+                    x3x = x3x + i + ','
+                } else { x3x = x3x + i }
+            } else if (i % 5 === 0) {
+                if (i != 10) {
+                    x5x = x5x + i + ','
+                } else { x5x = x5x + i }
+            }
+        }
+        document.write('1-10中3的倍數: ' + x3x);
+        document.write('<br>')
+        document.write('1-10中5的倍數: ' + x5x);
+        document.write('<hr>');
+        
+        
+        // 題外話，優化簡寫法：
+        //a = a+1+2 簡寫 a += 1+2
+        
+        </script>
+</body>
+
+</html>
