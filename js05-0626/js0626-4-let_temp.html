@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <script>
-
+        let a=5;    //a=5
+        let b=3;    //b=3
+        let temp=a  //temp=a=5 =>temp=5, a=5, b=3
+        a=b;        //a=b=3 =>a=3, b=3, temp=5
+        b=temp;     //b=temp=5 =>a=3, b=5, temp=5
     </script>
 </body>
-
 </html>
