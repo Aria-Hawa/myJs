@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1-10合計
+        //  1.複習for迴圈
+        let sum1 = 0;
+        for (let i = 1; i <= 10; i++) {
+            sum1 = sum1 + i;
+        }
+        document.write(`1-10合計: ${sum1}`);
+        console.log(typeof (sum1));
+        document.write('<hr>');
+
+        // 2.while迴圈教學
+        // while的用法：先檢查，再執行 (用i=11來看最後sum2的結果)
+
+        let sum2 = 0;
+        let i = 1;
+        while (i <= 10) {
+            sum2 = sum2 + i;
+            i = i + 1;      //不加此段，i永遠等於1
+        }
+        document.write(`1-10合計: ${sum2}`)
+        document.write('<hr>');
+
+        // 3.do-while迴圈教學
+        /*
+            do{
+            .....
+            }while(執行迴圈條件);
+        */
+
+        // do-while的用法：先執行，再檢查 (用i=11來看最後sum3的結果)
+        //第一次執行時不會檢查
+        //第二次開始執行前會檢查
+
+        let sum3 = 0;
+        let j = 1;
+        do {
+            sum3 = sum3 + j;
+            j++;
+        } while (j <= 10);
+        document.write(`1-10合計: ${sum3}`);
+        document.write('<hr>');
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 作業1解答 -->
+    <!-- 設定太多變數會占用記憶體 -->
+    <script>
+        let a = 'n';      //預設answer變數n(沒有答對)
+        for (let i = 1; i <= 3; i++) {
+            let result = prompt('請輸入數字');
+            document.write(`第${i}次:${result}<br>`);
+            //檢查
+            if (result === '99') {
+                document.write('答對了');
+                a = 'y';        //answer變數改為y(答對了)
+                break;          //迴圈內的if也可以用break中斷迴圈執行
+            }
+        }
+
+        if (a == 'n') {
+            document.write('挑戰失敗')
+        }
+    </script>
+</body>
+
+</html>
