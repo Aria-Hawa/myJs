@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //請顯示1-100中，5的倍數值並加總
+        // 直到合計大於50就結束迴圈
+
+        //要顯示如下:
+        // i=5, s=5
+        // i=10, s=15
+        // i=15, s=30
+
+        // 在迴圈中使用continue
+        // 說明：當程式執行遇到continue時，continue之後的程式都不執行，直接回到迴圈起始位置
+
+        // for迴圈
+        document.write('用for迴圈+continue<br>')
+        let s1 = 0
+        for (let i = 1; i <= 100; i++) {
+            if (i % 5 != 0) {
+                continue;
+            }
+            s1 = s1 + i;
+            document.write(`i=${i}, s1=${s1}<br>`);
+            if (s1 >= 50) {
+                break;
+            }
+        }
+        document.write('<hr>');
+
+        // while迴圈
+        document.write('用while迴圈+continue<br>')
+        s1 = 0;
+        i = 0;
+        while (i <= 100) {
+            i++;
+            if (i % 5 != 0) {
+                continue;
+            }
+            s1 = s1 + i;
+            document.write(`i=${i}, s1=${s1}<br>`);
+            if (s1 >= 50) {
+                break;
+            }
+        }
+        document.write('<hr>');
+
+        // do-while迴圈
+        document.write('用do-while迴圈+continue<br>')
+        s1 = 0;
+        i = 0;
+        do {
+            i++;
+            if (i % 5 != 0) {
+                continue;
+            }
+            s1 = s1 + i;
+            document.write(`i=${i}, s1=${s1}<br>`);
+            if (s1 >= 50) {
+                break;
+            }
+        } while (i <= 100);
+        document.write('<hr>');
+
+        // 結論
+        // break    =>結束迴圈或者switch
+        // continue =>回到迴圈開始的位置
+
+
+    </script>
+</body>
+
+</html>

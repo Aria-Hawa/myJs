@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //請設計一個函式能夠四則運算
+
+        function cal(a, b, c) {
+            if (b == '+') {
+                document.write(`${a}${b}${c}=${a + c}`);
+            } else if (b == '-') {
+                document.write(`${a}${b}${c}=${a - c}`);
+            } else if (b == '*') {
+                document.write(`${a}${b}${c}=${a * c}`);
+            } else if (b == '/') {
+                document.write(`${a}${b}${c}=${(a / c).toFixed(2)}`);
+            } else {
+                document.write('輸入的運算符號不存在<br>')
+            }
+        }
+
+        /* cal(Number(prompt('輸入數字')), prompt('輸入運算符號'), Number(prompt('再次輸入數字'))); */
+        // 假若輸入數字時有空白存在，通常轉換為Number型態時會自動刪除，但這樣不夠嚴謹
+
+        // 排除可能因素的寫法
+        // 1. 非數字 NaN
+        // 2. 多餘空白 .trim
+        // 3. 取消按鍵 null
+        /*
+            let a = prompt('輸入數字');
+            let b = prompt('請輸入運算符號');
+            let c = prompt('再次輸入數字');
+            if (a == null || b == null || c == null) {
+                document.write('請按確認鍵<br>');
+            } else if (a == '' || b == '' || c == '') {
+                document.write('為輸入內容<br>');
+            } else if (isNaN(a) || isNaN(c)) {       //is Not a Number
+                document.write('請輸入數字');
+            } else {
+                a = a.trim();
+                a = Number(a);
+                b = b.trim();
+                c = c.trim();
+                c = Number(c);
+                cal(a, b, c);
+            }
+                */
+
+        let a = prompt('輸入數字');
+
+        switch (isNaN(a)) {
+            case true:
+                document.write('請勿輸入非數值資料');
+                break;
+            default:
+                switch (a) {
+                    case null:
+                        document.write('請按確認鍵');
+                        break;
+                    case '':
+                        document.write('未輸入內容');
+                        break;
+                    default:
+                        a = a.trim();
+                        a = Number(a);
+                        let b = prompt('輸入運算符號');
+                        switch (b) {
+                            case null:
+                                document.write('請按確認鍵');
+                                break;
+                            case '':
+                                document.write('未輸入內容');
+                                break;
+                            default:
+                                b = b.trim();
+                                let c = prompt('再次輸入數字')
+                                switch (isNaN(c)) {
+                                    case true:
+                                        document.write('請輸入運算符號');
+                                        break;
+                                    default:
+                                        switch (c) {
+                                            case null:
+                                                document.write('請按確認鍵');
+                                                break;
+                                            case '':
+                                                document.write('未輸入內容');
+                                                break;
+                                            default:
+                                                c = c.trim();
+                                                c = Number(c);
+                                                cal(a, b, c);
+                                        }
+                                }
+                        }
+                }
+        }
+
+
+        /*
+        switch (a) {
+            case null:
+                document.write('請按確認鍵');
+                break;
+            case '':
+                document.write('未輸入內容');
+                break;
+            default:
+                a = a.trim();
+                a = Number(a);
+                let b = prompt('輸入運算符號');
+                switch (b) {
+                    case null:
+                        document.write('請按確認鍵');
+                        break;
+                    case '':
+                        document.write('未輸入內容');
+                        break;
+                    default:
+                        b = b.trim();
+                        let c = prompt('再次輸入數字')
+                        switch (c) {
+                            case null:
+                                document.write('請按確認鍵');
+                                break;
+                            case '':
+                                document.write('未輸入內容');
+                                break;
+                            default:
+                                c = c.trim();
+                                c = Number(c);
+                                cal(a, b, c);
+                        }
+                }
+        }
+*/
+
+    </script>
+
+</body>
+
+</html>

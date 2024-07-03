@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 請輸入成績N次,直到輸入{-1}或{取消}就結束輸入
+        /* 
+        第1次分數：90
+        第2次分數：50
+        第3次分數：60
+        第4次分數：-1或取消
+        ------顯示------
+        及格人數：2人
+        不及格人數：2人
+        總分：200分
+        總平均：66.67分
+
+        */
+        let i = 0;
+        let score;
+        let ss = 0; //加總
+        let sa = 0;   //平均
+        let pass = 0; //及格人數
+        let faild = 0; //不及格人數
+
+
+        
+                while (score != -1) {
+                    i++;
+                    score = prompt(`請輸入第${i}次分數`);
+                    if (score === '-1' || score == null) {      //不用continue....
+                        break;
+                    }
+                    document.write(`第${i}次分數:${score}, ${chkScore(score)}<br>`);
+                    ss=ss+Number(score);
+                    sa=ss/i;
+                    if(score>=60){
+                        pass=pass+1;
+                    }else{
+                        faild=faild+1;
+                    }
+                }
+                document.write(`加總: ${ss}<br>`);
+                document.write(`平均: ${sa}<br>`);
+                document.write(`及格人數: ${pass}<br>`);
+                document.write(`不及格人數: ${faild}<br>`);
+        
+                function chkScore(score) {      //其實不會用到
+                    if(score>=60){
+                        return '及格';
+                    }else{
+                        return '不及格';
+                    }
+                }
+        
+
+/*
+        //老師解法
+        while (true) {
+            score = prompt(`請輸入分數`);
+            // 先判斷後break
+            if (score === '-1' || score == null) {
+                break;
+            }
+            // 是否非數字
+            if (isNaN(score)) {
+                alert('非數值,請重新輸入');
+                continue;       //不再往下，回到迴圈起始位置
+            }
+
+            score = Number(score);
+            if (score < 0 || score > 100) {
+                alert('分數有效範圍是0~100,請重新輸入');
+                continue;
+            }
+
+            if (score >= 60) {
+                pass++;
+            } else {
+                faild++;
+            }
+            i++;
+            ss = ss + score;
+            document.write(`第${i}次分數:${score}<br>`);
+        }
+        
+        //迴圈結束了
+        document.write('--------------------------<br>');       //也是...結束再加就好，不必在條件下加
+        document.write(`及格人數　：${pass}人<br>`);
+        document.write(`不及格人數：${faild}人<br>`);
+        document.write(`加總分數　：${ss}<br>`);
+        // 平均
+        sa=ss/(pass+faild);
+        sa=sa.toFixed(2);
+        document.write(`平均分數　：${sa}<br>`);
+        */
+
+
+    </script>
+
+
+</body>
+
+</html>

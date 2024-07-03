@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function宣告狀況
+        // 1. 無參數，無傳回值
+
+        // 建立一個打招呼function
+        function sayHi(){
+            document.write('Hello1<br>');
+        }
+        // 呼叫function
+        // 直接寫function名稱就好 =>[function名稱();]
+        sayHi();
+
+        // 2. 有參數，無傳回值
+        function sayHi2(strName) {
+            document.write(`Hi,${strName}早安<br>`);
+
+        }
+        console.log(strName);   //會顯示undefind，因為這個變數在function外找不到
+        sayHi2(prompt('請問怎麼稱呼'));     //萬萬注意，()內千萬不要寫成strName
+
+    </script>
+
+</body>
+
+</html>
