@@ -124,7 +124,7 @@
         document.write('1-10中3的倍數: ' + x3 + '<br>')
         document.write('1-10中5的倍數: ' + x5)
         document.write('<hr>');
-        
+
         // ex6: 衍生條件如下
         // 1. 顯示1-10中3的倍數合計：3+6+9=18
         // 2. 顯示1-10中5的倍數合計：5+10=15
@@ -132,28 +132,28 @@
         //a = a+1+2 簡寫 a += 1+2
         let x3x = ''
         let x5x = ''
-        let sx3x=0
-        let sx5x=0
+        let sx3x = 0
+        let sx5x = 0
         for (let i = 1; i <= 10; i++) {
             if (i % 3 === 0) {
                 if (i != 9) {
                     x3x += i + '+'
                 } else { x3x = x3x + i }
-                sx3x=sx3x+i
+                sx3x = sx3x + i
             } else if (i % 5 === 0) {
                 if (i != 10) {
-                    x5x +=i + '+'
+                    x5x += i + '+'
                 } else { x5x = x5x + i }
-                sx5x=sx5x+i
+                sx5x = sx5x + i
             }
         }
 
-        document.write('1-10中5的倍數: '+ x5x+'='+sx3x);
+        document.write('1-10中5的倍數: ' + x5x + '=' + sx3x);
         document.write('<br>')
-        document.write('1-10中5的倍數: '+x5x +'='+ sx5x);
+        document.write('1-10中5的倍數: ' + x5x + '=' + sx5x);
         document.write('<hr>');
 
-        </script>
+    </script>
 </body>
 
 </html>
