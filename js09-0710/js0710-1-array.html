@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立陣列方法1
+        let arr1 = [1, 2, 3, 4, 5]
+        console.log(`arr1:${arr1}`);
+        console.log(`arr1.length=${arr1.length}`);
+        // 建立陣列方法2
+        let arr2 = new Array();
+        // 給值
+        arr2[0] = 'a';
+        arr2[1] = 100;
+        console.log(`arr2:${arr2}`);
+        console.log(`arr2.length=${arr2.length}`);
+        console.log(`arr2的資料型態:${typeof arr2[0]},${typeof arr2[1]}`)
+        // 建立陣列方法3：先建立陣列物件，同時給值
+        let arr3 = new Array(99,80,'abc',true,null,{x:1, y:3});     /* 驗證可以給的值類型多樣 */
+        console.log(`arr3:${arr3}`);
+        console.log(`arr3.length=${arr3.length}`);
+
+        // 合法的陣列宣告
+        let arr4=[];    // 空陣列
+        let arr5=[1,2,3];
+        let arr6=['a','b','c'];
+        let arr7=[1,'2',true,[],{book:'javascript'}];   // 數值、字串、布林值、陣列、物件
+        // 物件
+        let obj1={
+            x:5,
+            y:3
+        }
+
+        // 陣列型別 => typeof 陣列名稱 / typeof()
+        console.log(typeof arr5);
+        console.log(typeof(obj1));
+        console.log(typeof(obj1.x));        //obj1裡面的x的資料型態
+        console.log(typeof arr7[2]);
+    </script>
+</body>
+
+</html>

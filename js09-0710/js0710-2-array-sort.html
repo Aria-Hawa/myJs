@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [100, 30, 99, 10, 3];
+        console.log(`排序前:${arr1}`);
+        // 遞增排序(sort)
+        arr1.sort();
+        console.log(`排序後:${arr1}`);
+        console.log(`排序後:${arr1.sort()}`);
+        // 以上排序先比每個值的第一位數，再比第二位數，此種比對方式不符需求
+
+        // 氣泡排序法 bubble sort
+        arr1.sort((a, b) => {           //箭頭函式：function XXXX(a,b){retrun a-b;}
+            return a - b;     //遞增
+        })
+        //或可寫 arr1.sort(function(a,b){retrun a-b;});
+        console.log(`真正的遞增排序後:${arr1}`);
+
+        /*
+        arr1.sort((a, b) => {
+            return b-a;     //遞減
+        })
+        console.log(`真正的遞減排序後:${arr1}`);
+        */
+        
+        // 先執行完遞增後使用reverse(反轉)也可以有遞減效果
+        arr1.reverse();
+        console.log(`真正的遞減排序後:${arr1}`);
+        
+
+        /*
+        //此段落證明，無法先透過參數改變為遞減後再透過sort變成正確的遞減
+        arr1.sort((a, b) => {
+            return b-a;     //遞減
+        })
+        console.log(`真正的遞減排序後:${arr1}`);
+        arr1.sort();
+        console.log(`真正的遞增排序後:${arr1}`) 
+        */
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 只顯示奇數
+        let arr1 = [1, 3, 7, 100, 234];
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i] % 2 != 0) {
+                console.log(arr1[i]);
+            }
+        }
+
+        // 陣列中只保留奇數(filter篩選)
+        let arr2 = [1, 3, 7, 100, 234];
+        // 不用迴圈，因為是透過陣列的長度去執行次數的
+
+        // 方法一：CallBackFn => 匿名函式
+        const odds = arr1.filter(function (n) {
+            // 檢查是否為奇數
+            if (n % 2 != 0) {
+                return true;
+            }
+            return false;   //return false;可寫可不寫
+        });
+
+
+        // 方法二：CallBackFn => 箭頭函式
+        /*
+        const odds = arr1.filter((n) => {
+            if (n % 2 != 0){
+                return true;
+                }
+                });
+                */
+
+        // 方法三：CallBackFn => 簡化箭頭函式
+        /*
+        const odds = arr1.filter((n) => {
+         return n % 2 != 0;      //n=1 => 1%2==1 =>true
+        });
+         */
+
+        // 方法四：CallBackFn => 再簡化
+        /*
+        const odds = arr1.filter((n) => n % 2 == 1);
+         */
+
+        console.log(`篩選後的奇數陣列內容: ${odds}`);
+        console.log(`篩選後的奇數陣列型態: ${typeof odds}`);
+        console.log(`篩選後的原本陣列內容: ${arr2}`);
+    </script>
+</body>
+
+</html>

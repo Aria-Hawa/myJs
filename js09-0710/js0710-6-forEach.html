@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 顯示陣列中所有值
+        let arr = [1, 2, '3', 4, 5, '12345'];
+        // for
+        console.log('用for');
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+
+        // map
+        console.log('用map');
+        let arrMapAllData = arr.map((n) => { return n });
+        console.log(arrMapAllData);
+
+        // for of
+        console.log('用for-of');
+        // for(let A of B){}  =>A變數名稱自行定義，B是陣列名稱。 =>將B陣列的值丟給A
+        for (let n of arr) {
+            console.log(n);
+        }
+
+        // forEach
+        console.log('用forEach');
+        arr.forEach((n) => {
+            console.log(n);
+        });
+
+        // 顯示陣列中字串的值
+        // for
+        console.log('用for');
+        for (let i = 0; i < arr.length; i++) {
+            if (typeof arr[i] == 'string') {
+                console.log(arr[i]);
+            }
+        };
+
+        // map
+        console.log('用map');
+        arr.map((n) => {
+            if (typeof n == 'string') {
+                console.log(n);
+            }
+        });
+
+        // for of
+        console.log('用for-of');
+        for (let n of arr) {
+            if (typeof n == 'string') {
+                console.log(n);
+            }
+        }
+
+        // forEach
+        console.log('用forEach');
+        arr.forEach((n) => {
+            if (typeof n == 'string') {
+                console.log(n);
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
