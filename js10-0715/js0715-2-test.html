@@ -11,29 +11,48 @@
     <script>
         // 亂數產生大樂透號碼1~49(不重複)
         // 特別號1個：1~49(可與之前重複)
-        // Q1: arr1.length =7 和 ==7 的差異
-        let r1 = Math.floor(Math.random() * 10) + 1;
+        // arr1.length =6 和 ==6
+        let r1;
         let arr1 = [];
+        
         // for (let i = 1; i <= 6; i++) {
         //     r1 = Math.floor(Math.random() * 49) + 1;
         //     console.log(r1);
-        //     arr1.push(r1);
-        //     if (r1 == r1) {
+        //     if (arr1.includes(r1)){
+        //         console.log('same');
+        //         i=i-1;              //卡很久，所以改用do-while寫，但謝謝ChatGPT的解答!!
         //         continue;
         //     }
+        //     arr1.push(r1);
         // }
 
+        
+        let count = 0;
+        do {
+            r1 = Math.floor(Math.random() * 49) + 1;
+            console.log(r1);
+            if (arr1.includes(r1)){
+                continue;
+                }
+                arr1.push(r1);
+                count++;
+        }while(arr1.length < 6)     //...這是執行條件不是停止迴圈的條件....寫 ==6 我在幹嘛...
+        
 
         console.log(`排序前：` + arr1);
         arr1.sort((a, b) => {
             return a - b;
         })
         console.log(`排序後：` + arr1);
-        arr1 = arr1 + ',' + (Math.floor(Math.random() * 49) + 1);
+        let sNum=Math.floor(Math.random() * 49) + 1;
+        arr1 = `${arr1},${sNum}`
         console.log(`加入特別號：` + arr1);
 
 
         // 亂數產生大樂透號碼1~49(不重複) ->使用自訂函式
+        // 特別號1個：1~49(可與之前重複)
+
+
 
 
 
