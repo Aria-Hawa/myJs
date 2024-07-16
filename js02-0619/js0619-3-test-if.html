@@ -18,7 +18,7 @@
         // 2.建立weight
         let weight = 55;
         // 3.計算BMI
-        let BMI = weight / (height*height);   //運算上55/1.53/1.53也OK
+        let BMI = weight / (height * height);   //運算上55/1.53/1.53也OK
         // log呈現
         console.log(BMI);
         console.log(BMI.toFixed(2));
@@ -43,23 +43,23 @@
         }
         // 2. 檢查18.5<=BMI<24
         // 區間資料使用交集邏輯運算子&&(AND)
-        if (BMI>=18.5 && BMI<24) {
+        if (BMI >= 18.5 && BMI < 24) {
             console.log(`正常範圍`);
         }
         // 3. 檢查24<=BMI<27
-        if (BMI>=24 && BMI<27) {
+        if (BMI >= 24 && BMI < 27) {
             console.log(`異常範圍(過重)`);
         }
         // 4. 檢查27<=BMI<30
-        if (BMI>=27 && BMI<30) {
+        if (BMI >= 27 && BMI < 30) {
             console.log(`異常範圍(輕度肥胖)`);
         }
         //5. 檢查30<=BMI<35
-        if (BMI>=30 && BMI<35) {
+        if (BMI >= 30 && BMI < 35) {
             console.log(`異常範圍(中度肥胖)`);
         }
         // 6. 檢查BMI>=35
-        if (BMI>=35) {
+        if (BMI >= 35) {
             console.log(`異常範圍(重度肥胖)`);
         }
     </script>

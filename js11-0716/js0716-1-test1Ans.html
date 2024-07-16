@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 大樂透老師解法
+        let arrNum = [];
+
+        /*
+        // 取出六個號碼
+        for (let i = 0; i < 6; i++) {
+            // 取亂數
+            let lotNum = Math.floor(Math.random() * 49) + 1;
+            // 檢查陣列中是否存在
+            if (arrNum.indexOf(lotNum) == -1) {
+                // 沒有重複情況下，加入陣列
+                arrNum.push(lotNum);
+            } else {
+                // 若重複的情況下，顯示index在哪裡
+                console.log(`在編號${i}位置，${lotNum}重複了`);
+                i--;
+            }
+        }
+        */
+
+        let i = 0;
+        // while寫法
+        /*
+        while (i < 6) {
+            let lotNum = Math.floor(Math.random() * 49) + 1;
+            if (arrNum.indexOf(lotNum) == -1) {
+                // 沒有重複情況下，加入陣列，i要加1
+                arrNum.push(lotNum);
+                i++;
+            } else {
+                // 若重複的情況下，顯示index在哪裡
+                console.log(`在編號${i}位置，${lotNum}重複了`);
+                // i--;     //此時不用減1
+                // 因此else這段可不寫
+            }
+        }
+        */
+
+        // do while寫法
+        do {
+            let lotNum = Math.floor(Math.random() * 49) + 1;
+            if (arrNum.indexOf(lotNum) == -1) {
+                // 沒有重複情況下，加入陣列，i要加1
+                arrNum.push(lotNum);
+                i++;
+            }
+        } while (i < 6);
+
+        console.log('排序前: ' + arrNum);
+        arrNum.sort((a, b) => {
+            return a - b;
+        });
+        console.log('排序後: ' + arrNum);
+        let speNum = Math.floor(Math.random() * 49) + 1;
+        console.log(`特別號: ${speNum}`);
+
+        // 重複的步驟可以使用函式
+
+    </script>
+</body>
+
+</html>

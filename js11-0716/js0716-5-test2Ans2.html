@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立函式時機
+        // 被動執行 -> function Name(){}
+        // 立即執行 -> 匿名函式，箭頭函式
+
+        // 1. 大樂透 =>第一區1~49挑6個號碼+第二區1~49挑1個號碼
+        // 2. 威力彩 =>第一區1~38挑6個號碼+第二區1~8挑1個號碼
+        // 3. 今彩539 =>第一區1~39挑5個號碼
+
+        // 老師解法-進階版!!
+
+        // 建立取亂數函式
+        // 發現變動值只有一個，把它設為變數(參數)
+        function getRadNum(max) {
+            return Math.floor(Math.random() * max) + 1;
+        }
+
+        // 分成三個函式時發現變動的數值只有3(老師有4個，item給樂透代號"判斷是否要有第二區")
+        // 大樂透+威力彩+今彩539合併成一個函式
+        function getLotNum(item, no1, count, no3 = 0) {     //因為今彩539沒有第二區號碼，所以預設給0
+            let arrNum = [];
+            let i = 0;
+            do {
+                let lotNum = getRadNum(no1);
+                if (arrNum.indexOf(lotNum) == -1) {
+                    arrNum.push(lotNum);
+                    i++;
+                }
+            } while (i < count);
+            console.log('排序前: ' + arrNum);
+            arrNum.sort((a, b) => {
+                return a - b;
+            });
+            console.log('排序後: ' + arrNum);
+            if (item == "1" || item == "2") {
+                let speNum = getRadNum(no3);
+                console.log(`特別號: ${speNum}`);
+            }
+        }
+
+        // 跳脫字元符號: \n =>換行
+        let lotNum = prompt(`請輸入樂透號碼代號 => \n1.大樂透 2.威力彩 3.今彩539`)
+        // 呼叫大樂透號碼
+        if (lotNum == "1") {
+            getLotNum("1", 49, 6, 49);
+        } else if (lotNum == "2") {
+            getLotNum("2", 38, 4, 8)
+        } else if (lotNum == "3") {
+            getLotNum("3", 39, 5)
+        } else {
+            console.log(`err!代號輸入錯誤`);
+        }
+
+        // 沿用switch寫法
+        /*
+        switch(lotNum){
+            case "1":
+            getLotNum("1",49, 6, 49);
+            break;
+            case "2":
+            getLotNum("2",38, 4, 8);
+            break;
+            case "3":
+            getLotNum("3",39, 5);
+            default:
+                console.log(`err!代號輸入錯誤`);
+        }
+        */
+
+    </script>
+</body>
+
+</html>

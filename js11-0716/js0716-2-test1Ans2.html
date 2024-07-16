@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 建立函式時機
+        // 被動執行 -> function Name(){}
+        // 立即執行 -> 匿名函式，箭頭函式
+
+        // 大樂透老師解法
+        // 重複的步驟可以使用函式
+        // 發現取亂數這個步驟重複
+
+        // 建立取亂數函式
+        function getRadNum(lotNum) {
+            if (lotNum == 1) {
+                return Math.floor(Math.random() * 49) + 1;
+            } else if (lotNum == 2) {
+                return Math.floor(Math.random() * 38) + 1;
+            } else if (lotNum == 3) {
+                return Math.floor(Math.random() * 39) + 1;
+            }
+        }
+
+        // 也可以把以下變成一個函式等待呼叫
+
+        function getLotNum(lotNum) {
+            let arrNum = [];
+            let i = 0;
+            do {
+                let lotNum = getRadNum(49);
+                if (arrNum.indexOf(lotNum) == -1) {
+                    arrNum.push(lotNum);
+                    i++;
+                }
+            } while (i < 6);
+            console.log('排序前: ' + arrNum);
+            arrNum.sort((a, b) => {
+                return a - b;
+            });
+            console.log('排序後: ' + arrNum);
+            let speNum = getRadNum(49)
+            console.log(`特別號: ${speNum}`);
+        }
+
+        // 跳脫字元符號: \n =>換行
+        let lotNum = prompt(`請輸入樂透號碼代號 => \n1.大樂透 2.威力彩 3.今彩539`)
+        // 呼叫大樂透號碼
+        getLotNum(lotNum);
+
+
+    </script>
+</body>
+
+</html>

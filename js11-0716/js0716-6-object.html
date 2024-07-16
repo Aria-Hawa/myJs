@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 變數1
+        let userName = '健仔';
+        // 變數2
+        let userAge = 7;
+        // 方法1
+        function sayHi() {
+            console.log(`Hi,我是${userName}，今年${userAge}歲`);
+        }
+        // 呼叫才運作
+        sayHi();
+
+        // 建立物件
+        // 方法一：實體化
+        // 範例一：user物件
+        let user = {
+            // 物件屬性
+            // 屬性名稱:屬性值
+            name: '建仔',
+            age: 7,
+            // 物件方法
+            // 方法名稱:function(){...}
+            sayHi2: function () {
+                // this. ->代表使用目前同一物件中的屬性
+                console.log(`Hi,我是${this.name}，今年${this.age}歲`);
+            }
+        };
+
+        // 範例二：car物件
+        let car = {
+            // 品牌
+            // logo
+            // 款式
+            // 價格
+            // 馬力
+            // 色彩
+            // . . . . . 
+        };
+
+        // 範例三：notebook
+        let notebook = {
+            // 品牌
+            // 規格(記憶卡、容量、顯卡....)
+            // 價格
+            // 色彩
+        };
+
+        // 呼叫物件user
+        console.log(user.name);
+        console.log(user['age']);
+        user.sayHi2();
+
+        // 修改物件中的age屬性
+        user.age = 10;
+        console.log(`修改物件中的age屬性:${user.age}`);
+
+        // 刪除物件中的age屬性
+        delete user.age;
+        console.log(`刪除物件中的age屬性:${user.age}`);
+
+        // 方法二：建構子物件
+        // 1. 使用new建立一個空物件Object
+        let mobile = new Object();
+        // 2. 再建立屬性或方法
+        // 建立品牌屬性
+        mobile.brand = 'iPhone';
+        // 建立顏色屬性
+        mobile.color = 'black';
+        // 建立尺寸屬性
+        mobile.size = '13.5';
+        // 建立方法
+        mobile.showMsg=function(){
+            return `品牌: ${this.brand},顏色: ${this.color},尺寸: ${this.size}`;
+        }
+
+        // 呼叫物件
+        console.log(mobile.brand);
+        console.log(mobile.showMsg());
+
+
+
+    </script>
+</body>
+
+</html>
