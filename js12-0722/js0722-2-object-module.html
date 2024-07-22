@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        //建立學生成績物件
+        // 1.建立空白物件
+        let obj = new Object();
+
+        // 2.建立物件成員
+        obj.sid = 's001';
+        obj.sName = '1號同學';
+        obj.html = 100;
+        obj.css = 100;
+        obj.javascript = 100;
+        // 顯示物件全部內容
+        console.log(obj);
+        */
+
+        // 轉換成物件樣板
+        // 建立物件樣版 (習慣上字首要大寫)
+        // 1. 建立物件樣版成員
+        function Sdata(sid, sName, html, css, javascript) {
+            this.sid = sid;
+            this.sName = sName;
+            this.html = html;
+            this.css = css;
+            this.javascript = javascript;
+            this.showData = function () {
+                console.log(`學號:${this.sid},姓名:${this.sName},成績總分:${this.html + this.css + this.javascript}分`);
+            }
+            // this代表物件本身自己
+        }
+
+        // 2.使用物件樣板 =>傳值給物件樣板的參數
+        let s1 = new Sdata('s001', '李同學', 100, 100, 100);
+        let s2 = new Sdata('s002', '王同學', 90, 80, 100);
+        let s3 = new Sdata('s003', '張同學', 80, 80, 100);
+        console.log(s2);    // s1,s2,s3各為一物件
+
+        // 呼叫物件樣板的方式
+        s1.showData();
+        s2.showData();
+        s3.showData();
+
+        // 計算全班各科總分
+        // 方法1:直接使用s1，s2，s3的成員
+        console.log(`html全班總分:${s1.html + s2.html + s3.html}`);
+        console.log(`css全班總分:${s1.css + s2.css + s3.css}`);
+        console.log(`javascript全班總分:${s1.javascript + s2.javascript + s3.javascript}`);
+
+        // 方法2: 陣列物件
+        // 陣列元素為物件
+        let arrObj = [s1, s2, s3];
+        console.log(arrObj);
+        let htmlSum = 0, cssSum =0, jsSum = 0;
+        for (let i = 0; i < arrObj.length; i++){
+            htmlSum = htmlSum + arrObj[i].html;
+            cssSum = cssSum + arrObj[i].css;
+            jsSum = jsSum + arrObj[i].html;
+        }
+
+        console.log(`html全班總分:${htmlSum}`);
+        console.log(`css全班總分:${cssSum}`);
+        console.log(`javascript全班總分:${jsSum}`);
+
+    </script>
+</body>
+
+</html>

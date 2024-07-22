@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 用其餘參數改寫
+        function Student(...stuData) {
+            this.stuData = stuData;
+            this.showData = function(){
+                console.log(`${stuData[1]},學號:${stuData[0]},身高:${stuData[5]},體重:${stuData[6]},成績加總為${stuData[2]+stuData[3]+stuData[4]}`);
+            }
+            
+        }
+
+        let s1 = new Student('s001', '李同學', 100, 100, 100, 157, 55);
+        let s2 = new Student('s002', '王同學', 90, 80, 100, 160, '無體重');
+        let s3 = new Student('s003', '張同學', 80, 80, 100, 59);
+
+        console.log(s1); //發現s1物件裡面包了一個stuData陣列
+        console.log()
+        s1.showData();
+        s2.showData();
+        s3.showData();
+    </script>
+</body>
+
+</html>
