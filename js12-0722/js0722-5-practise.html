@@ -13,9 +13,14 @@
         function Student(...stuData) {
             this.stuData = stuData;
             this.showData = function(){
-                console.log(`${stuData[1]},學號:${stuData[0]},身高:${stuData[5]},體重:${stuData[6]},成績加總為${stuData[2]+stuData[3]+stuData[4]}`);
+                // console.log(`${stuData[1]},學號:${stuData[0]},身高:${stuData[5]},體重:${stuData[6]},成績加總為${stuData[2]+stuData[3]+stuData[4]}`);
             }
-            
+            let arr = [s1,s2,s3]
+            let htmlSum = 0;
+            for (i = 0; i < stuData.length; i++){
+                html += stuData[2];
+                console.log(`html全班總分:${htmlSum}`);
+            }            
         }
 
         let s1 = new Student('s001', '李同學', 100, 100, 100, 157, 55);
@@ -27,6 +32,9 @@
         s1.showData();
         s2.showData();
         s3.showData();
+
+
+
     </script>
 </body>
 
