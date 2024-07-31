@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="textBox">
+        <input type="button" id="btn" value="加入">
+    </form>
+
+    <ul>
+        <li>HTML</li>
+    </ul>
+
+    <script>
+        // 將textBox輸入的文字加入li裡面
+        // 取得按鈕事件
+        let myBtn = document.getElementById('btn');
+        // 監聽click之後
+        myBtn.addEventListener('click', () => {
+            // 取得textBox輸入的內容
+            let newList = document.getElementById('textBox');
+            // 要顯示newList的元素內容要用value
+
+            // 1. 建立新節點，產生li
+            let newElm = document.createElement('li');
+            // 2. 建立文字節點 => text
+            let newText = document.createTextNode(newList.value);
+            // 3. 將文字節點加入到新節點裡面
+            newElm.appendChild(newText);
+            // 4. 取得要加入新節點的位置
+            // let getUL = document.getElementsByTagName('ul');
+            // 為何不能用getElementsByTagName
+            let getUL = document.querySelector('ul');
+            // 5. 將新節點加入到ul元素的最後一個子節點
+            getUL.appendChild(newElm);
+        });
+
+
+        // 1. 建立新節點，產生li
+        let newElm = document.createElement('li');
+        // 2. 建立文字節點 => text
+        let newText = document.createTextNode('text');
+        // 3. 將文字節點加入到新節點裡面
+        newElm.appendChild(newText);
+        // 4. 取得要加入新節點的位置
+        // let getUL = document.getElementsByTagName('ul');
+        // 為何不能用getElementsByTagName
+        let getUL = document.querySelector('ul');
+        // 5. 將新節點加入到ul元素的最後一個子節點
+        getUL.appendChild(newElm);
+    </script>
+</body>
+
+</html>
