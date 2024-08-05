@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        #myUL {
+            width: 220px;
+            padding: 0;
+        }
+
+        #myUL li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0px 5px 10px;
+        }
+
+        #myUL li:hover {}
+
+        #myUL span {
+            border: 1px solid transparent;
+        }
+
+        #myUL span:hover {
+            background-color: rgb(211, 211, 211);
+            border: 1px solid red;
+        }
+    </style>
+
+
+
+
+    <form action="">
+        <input type="text" id="myInput">
+        <input type="button" id="btn" value="加入">
+        <input type="button" id="btn2" value="刪除">
+    </form>
+
+    <ul id="myUL">
+        <li>HTML<!-- <span>刪除</span> --></li>
+    </ul>
+
+    <script>
+        // 1. 建立新節點，產生li
+        let newElm = document.createElement('li');
+        // 2. 建立文字節點 => text
+        let newText = document.createTextNode("test-1 ");
+        // 3. 將文字節點加入到新節點裡面
+        newElm.appendChild(newText);
+        // 4. 取得要加入新節點的位置
+        // let getUL = document.getElementsByTagName('ul');
+        // 為何不能用getElementsByTagName
+        // 解答：getElementsByTagName()  =>console結果會是ul的collection ??
+        // 解答：querySelector()  =>console結果會是<ul>內容物</ul> ??
+        let getUL = document.querySelector('ul');
+        // 5. 將新節點加入到ul元素的最後一個子節點
+        getUL.appendChild(newElm);
+
+
+        // 新增"現有li項目"後的刪除按鈕
+        var myNodeList = document.getElementsByTagName('li');
+        console.log(myNodeList.length);
+        for (var i = 0; i < myNodeList.length; i++) {
+            var span = document.createElement('span');
+            var txt = document.createTextNode(`刪除${i}`);
+            span.className = "close";       // 新增span的類別
+            span.appendChild(txt);
+            myNodeList[i].appendChild(span);
+        }
+
+
+        // console.log(span);      //只有抓到最後一個span(也就是刪除1)
+        let myClose = document.getElementsByClassName('close');
+        // console.log(myClose[0]);
+
+        for (let i = 0; i < myNodeList.length; i++) {
+            myClose[i].addEventListener('click', () => {
+                // 取得這個close的li
+                var parentSpan = myClose[i].parentNode;  // 等於li
+                var parentLi = parentSpan.parentNode;  //等於ul
+                // 移除ul裡面的這個li
+                parentLi.removeChild(parentSpan);
+            });
+            parentSpan = myClose[i].parentNode;
+            console.log(parentSpan);
+        }
+        
+        // console.log(myNodeList.length);
+        // console.log(myClose[0]);
+
+
+        // 將textBox輸入的文字加入li裡面
+        // 取得"新增"按鈕事件
+        let myBtn = document.getElementById('btn');
+        // 監聽click之後
+        myBtn.addEventListener('click', () => {
+            // 新增li節點
+            var li = document.createElement('li');
+            // 取得文字節點
+            var inputValue = document.getElementById('myInput').value;
+
+            // 新增文字節點
+            var t = document.createTextNode(inputValue);
+            // 將文字節點加入到新節點li裡面
+            li.appendChild(t);
+            // 檢查文字方塊inputValue清除空白後.trim()是否有內容
+            if (inputValue.trim() == '') {
+                alert('文字方塊不能空白');
+            } else {
+                document.getElementById("myUL").appendChild(li);
+
+                // 動態新增"刪除"按鈕
+                var span = document.createElement('span');
+                var txt = document.createTextNode("刪除");
+                span.className = "close";       // 新增span的類別
+                span.appendChild(txt);
+                li.appendChild(span);
+            }
+            // 按下加入之後清除欄位內的字
+            document.getElementById("myInput").value = '';
+
+            // 按下li子層span，刪除li
+            span.addEventListener('click', () => {
+                // 取得這個span的li
+                var parentSpan = span.parentNode;  // 等於li
+                var parentLi = parentSpan.parentNode;  //等於ul
+                // 移除這個li
+                parentLi.removeChild(parentSpan);
+            });
+        });
+
+
+
+        // 按下input的刪除按鈕，刪除第一個li
+        btn2.addEventListener('click', () => {
+            // 取得第一個li
+            var removeElm = document.getElementsByTagName('li')[0];
+            console.log(removeElm);
+            // 找removeElm的父節點.parentNode
+            let parentElm = removeElm.parentNode;
+            // 從父元素移除第一個li子節點
+            parentElm.removeChild(removeElm);
+        });
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -21,9 +21,12 @@ for(let i = 0; i < myLi.length; i++){
 }
 
 // 使用querySelector會把h1本人標籤也代出來
+console.log('--用querySelector--');
 console.log(document.querySelector('h1'));
+console.log('--用querySelector().textContent--');
 console.log(document.querySelector('h1').textContent);
 // 用getElementsByTagName的結果是一個collection
+console.log('--用getElementsByTagName--');
 console.log(document.getElementsByTagName('h1'));
 console.log(document.getElementsByTagName('h1').item(0).textContent);
 
