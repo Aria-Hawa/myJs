@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>老師用span寫</title>
 </head>
 
 <body>
@@ -17,24 +17,24 @@
         #myUL li {
             display: flex;
             justify-content: space-between;
-            padding: 5px 0px 5px 10px;
+            margin: 5px 0px 5px 10px;
         }
 
-        #myUL li:hover {}
+        #myUL li:hover {
+            background-color: rgb(252, 241, 90);
+        }
 
         #myUL span {
             border: 1px solid transparent;
         }
 
         #myUL span:hover {
-            background-color: rgb(211, 211, 211);
-            border: 1px solid red;
+            background-color: rgb(245, 169, 169);
+            cursor: pointer;
         }
     </style>
 
-
-
-
+    <h2>老師的span做法</h2>
     <form action="">
         <input type="text" id="myInput">
         <input type="button" id="btn" value="加入">
@@ -49,10 +49,6 @@
         let newElm = document.createElement('li');
         let newText = document.createTextNode("test-1 ");
         newElm.appendChild(newText);
-        // let getUL = document.getElementsByTagName('ul');
-        // 為何不能用getElementsByTagName
-        // 解答??：getElementsByTagName()  =>console結果會是ul的collection
-        // 解答??：querySelector()  =>console結果會是<ul>內容物</ul>
         let getUL = document.querySelector('ul');
         getUL.appendChild(newElm);
 
@@ -66,6 +62,12 @@
             span.className = "close";       // 新增span的類別
             span.appendChild(txt);
             myNodeList[i].appendChild(span);
+
+            let spanI = document.getElementsByTagName('span')[i];
+            spanI.addEventListener('click', ()=>{
+                let spanILi = spanI.parentNode;
+                spanILi.parentNode.removeChild(spanILi);
+            });
         }
 
 
@@ -88,14 +90,23 @@
                 console.log(myNodeList.length);
 
                 // 動態新增"刪除"按鈕
-                let span = document.createElement('span');
-                let txt = document.createTextNode("刪除");
-                span.className = "close";       // 新增span的類別
-                span.appendChild(txt);
-                li.appendChild(span);
+                var span1 = document.createElement('span');
+                var txt = document.createTextNode("刪除");
+                span1.className = "close";       // 新增span的類別
+                span1.appendChild(txt);
+                li.appendChild(span1);
             }
             // 按下加入之後清除欄位內的字
             document.getElementById("myInput").value = '';
+
+            // 按下li子層span，刪除li
+            span1.addEventListener('click', () => {
+                // 取得這個span的li
+                let parentSpan = span1.parentNode;  // 等於li
+                let parentLi = parentSpan.parentNode;  //等於ul
+                // 移除這個li
+                parentLi.removeChild(parentSpan);
+            });
         });
 
         // 按下input的刪除按鈕，刪除第一個li
@@ -108,12 +119,6 @@
             // 從父元素移除第一個li子節點
             parentElm.removeChild(removeElm);
         });
-
-
-
-
-
-
 
 
     </script>

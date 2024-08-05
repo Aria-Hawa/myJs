@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用button寫</title>
+</head>
+
+<body>
+    <style>
+        li {
+            display: flex;
+            justify-content: space-between;
+            width: 30%;
+            margin-bottom: 15px;
+        }
+
+        li button:hover,
+        #btn {
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: rgb(255, 225, 54);
+        }
+
+        li:active {
+            background-color: rgb(255, 107, 107);
+        }
+
+
+    </style>
+
+    <h2>button做法</h2>
+    <form action="">
+        <input type="text" id="textBox">
+        <input type="button" id="btn" value="加入">
+        <input type="button" id="btn2" value="刪除第一行">
+    </form>
+
+    <ul>
+        <li>HTML <button>刪除</button></li>     <!-- 測試button要寫在li裡面 -->
+    </ul>
+
+    <script>
+        // 將textBox輸入的文字加入li裡面
+        // 取得按鈕事件
+        let myBtn = document.getElementById('btn');
+        // 監聽click之後
+        myBtn.addEventListener('click', () => {
+            // 取得textBox輸入的內容
+            let newList = document.getElementById('textBox');
+            // // 檢查textBox清除空白後.trim()是否有內容
+            if (newList.value.trim() == '') {
+                alert('文字方塊不能空白');
+            } else {
+                // 1. 建立新節點，產生li
+                let newElm = document.createElement('li');
+                // 2. 建立文字節點 => text
+                // 要顯示newList的元素內容要用value
+                let newText = document.createTextNode(newList.value);
+                // 3. 將文字節點加入到新節點裡面
+                newElm.appendChild(newText);
+                // 4. 取得要加入新節點的位置
+                let getUL = document.querySelector('ul');
+                // 5. 將新節點加入到ul元素的最後一個子節點
+                getUL.appendChild(newElm);
+
+                // 動態加入刪除btn
+                let newBtn = document.createElement('button');
+                let newBtnText = document.createTextNode('刪除本行');
+                newBtn.appendChild(newBtnText);
+                newElm.appendChild(newBtn);
+                //console.log(newBtn);     //newBtn本人是<button>刪除本行</button>
+                // 按下li子層button，刪除li
+                newBtn.addEventListener('click', () => {
+                    // 取得newBtn的li
+                    let parentSpan = newBtn.parentNode;  // 等於li
+                    let parentLi = parentSpan.parentNode;  //等於ul
+                    // 移除這個li
+                    parentLi.removeChild(parentSpan);
+                });
+            }
+            // 按下加入之後清除欄位內的字
+            document.getElementById("textBox").value = '';
+        });
+
+
+        // 建立新li(test-1測試)
+        let newElm = document.createElement('li');
+        let newText = document.createTextNode('test-1');
+        newElm.appendChild(newText);
+        // 測試test-1加入刪除按鈕的寫法
+        let newBtn = document.createElement('button');
+        let newBtnText = document.createTextNode('刪除');
+        newBtn.appendChild(newBtnText);
+        newElm.appendChild(newBtn);
+        let getUL = document.querySelector('ul');
+        getUL.appendChild(newElm);
+
+        // 按下"刪除第一行"的刪除動作
+        // console.log(document.getElementById('btn2'));
+        btn2.addEventListener('click', () => {
+            // 取得第一個li
+            let removeElm = document.getElementsByTagName('li')[0];
+            // console.log(removeElm);
+            // 找removeElm的父節點.parentNode
+            let parentElm = removeElm.parentNode;
+            // 從父元素移除第一個li子節點
+            parentElm.removeChild(removeElm);
+        });
+
+        /*
+        let existingBtn = document.querySelector('button');
+        console.log(existingBtn);
+        existingBtn.addEventListener('click', () => {
+            let parentBtn = existingBtn.parentNode
+            console.log(parentBtn);     // 取得click的li
+            parentBtn.parentNode.removeChild(parentBtn);        //刪除click的li
+        });
+
+        newBtn.addEventListener('click', () => {
+            // 取得這個span的li
+            let parentSpan = newBtn.parentNode;  // 等於li
+            let parentLi = parentSpan.parentNode;  //等於ul
+            // 移除這個li
+            parentLi.removeChild(parentSpan);
+        });
+        */
+
+        // 因為querySelectorAll只會抓第一個
+        let existingBtn = document.querySelectorAll('button');
+        // console.log(existingBtn);
+        // console.log(existingBtn.length);
+        for (let i = 0; i <existingBtn.length ; i++) {
+            // 問題:迴圈內必須寫重新宣告existingBtn，不能不寫let
+            let existingBtn = document.querySelectorAll('button')[i];
+            existingBtn.addEventListener('click', () => {
+                let parentBtn = existingBtn.parentNode
+                //console.log(parentBtn);     // 取得click的li
+                parentBtn.parentNode.removeChild(parentBtn);        //刪除click的li
+                console.log(`刪掉第${i}次`);
+            });
+        }
+
+
+
+        // let getUL = document.getElementsByTagName('ul');
+        // let getUL = document.querySelector('ul');
+        // 為何不能用getElementsByTagName
+        // 解答??：getElementsByTagName()  =>console結果會是ul的collection ??
+        // 解答??：querySelector()  =>console結果會是<ul>內容物</ul> ??
+    </script>
+</body>
+
+</html>
