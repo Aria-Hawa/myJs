@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span:hover {
+            cursor: pointer;
+        }
+
+        span {
+            border: 1px solid black;
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span onclick="changeToAbout();">關於我</span>
+        <span onclick="changeToExps();">學經歷</span>
+        <span onclick="changeToContact();">聯絡我</span>
+        <span onclick="changeToNews();">最新消息</span>
+    </div>
+    <hr>
+    <div id="about">大家好，我是Aria</div>
+    <div id="exps" style="display: none;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus
+        architecto suscipit culpa quia voluptates est minima corporis aliquid! Alias necessitatibus omnis ducimus ipsam
+        ipsum reprehenderit optio quo quas praesentium autem.</div>
+    <div id="contact" style="display: none;">
+        email：shigototravailler@gmail.com
+        mobile：0928645553
+    </div>
+    <div id="news" style="display: none;">最!新!消!息</div>
+
+
+    <script>
+        // 簡化寫法
+        // 找出共同部分=>取出div
+        let aboutDiv = document.getElementById('about');
+        let expsDiv = document.querySelector('#exps');
+        let contactDiv = document.getElementById('contact');
+        let newsDiv = document.getElementById('news');
+
+        // 找出共同部分=>取出none部分
+        // expsDiv.style.display = 'none';
+        // contactDiv.style.display = 'none';
+        // aboutDiv.style.display = 'none';
+        // newsDiv.style.display = 'none';
+
+        // 以上做成function
+        function getDiv() {
+            // 取得標籤div
+            aboutDiv = document.getElementById('about');
+            expsDiv = document.querySelector('#exps');
+            contactDiv = document.getElementById('contact');
+
+            // 2.再對標籤div操作
+            aboutDiv.style.display = 'none';
+            expsDiv.style.display = 'none';
+            contactDiv.style.display = 'none';
+            newsDiv.style.display = 'none';
+        }
+
+
+
+        // 簡寫
+        // 變更關於我
+        function changeToAbout() {
+            getDiv();
+            aboutDiv.style.display = 'block';
+        }
+
+
+        // 變更學經歷
+        function changeToExps() {
+            getDiv();
+            expsDiv.style.display = 'block';
+        }
+
+        // 變更聯絡我
+        function changeToContact() {
+            getDiv();
+            contactDiv.style.display = 'block';
+        }
+
+        function changeToNews() {
+            getDiv();
+            newsDiv.style.display = 'block';
+        }
+
+
+
+
+
+
+        // 直覺思考寫法
+        /*
+        // 變更關於我
+        function changeToAbout() {
+            1.先取得操作的標籤div
+            let aboutDiv = document.getElementById('about');
+            let expsDiv = document.querySelector('#exps');
+            let contactDiv = document.getElementById('contact');
+
+            // 2.再對標籤div操作
+            expsDiv.style.display = 'none';
+            contactDiv.style.display = 'none';
+            aboutDiv.style.display = 'block';
+        }
+
+        // 變更學經歷
+        function changeToExps() {
+            1.先取得操作的標籤div
+            let aboutDiv = document.getElementById('about');
+            let expsDiv = document.querySelector('#exps');
+            let contactDiv = document.getElementById('contact');
+
+            // 2.再對標籤div操作
+            aboutDiv.style.display = 'none';
+            contactDiv.style.display = 'none';
+            expsDiv.style.display = 'block';
+        }
+
+        // 變更聯絡我
+        function changeToContact() {
+            // 1.先取得操作的標籤div
+            let aboutDiv = document.getElementById('about');
+            let expsDiv = document.querySelector('#exps');
+            let contactDiv = document.getElementById('contact');
+
+            // 2.再對標籤div操作
+            aboutDiv.style.display = 'none';
+            expsDiv.style.display = 'none';
+            contactDiv.style.display = 'block';
+        }
+        */
+    </script>
+</body>
+
+</html>

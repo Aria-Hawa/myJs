@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 事件基本語法 -->
+    <!-- <div 事件名稱="程式碼"> 顯示標籤內容</div> --> <!-- 此行註解掉比較容易看 -->
+    <!-- <button 事件名稱="程式碼">顯示按鈕字眼</button> --> <!-- 此行註解掉比較容易看 -->
+
+    <div onclick="changeP();">按一下變更段落p的內容</div>
+    <p>第一段用querySelector。<br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam commodi animi dolor? Aperiam maxime tempore
+        fugiat laboriosam enim. Exercitationem veniam eveniet, modi deleniti odit explicabo molestiae cupiditate
+        mollitia consectetur ipsum.</p>
+
+    <p>第二段用getElementsByTagName。<br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam commodi animi dolor? Aperiam maxime tempore
+        fugiat laboriosam enim. Exercitationem veniam eveniet, modi deleniti odit explicabo molestiae cupiditate
+        mollitia consectetur ipsum.</p>
+
+    <p class="p3">第三段落用getElementsByClassName。<br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore facilis facere maxime? Maxime, aliquam animi
+        voluptatibus distinctio ullam enim, soluta nesciunt laboriosam ipsa quae molestiae, atque at debitis veritatis
+        dolorem.</p>
+
+    <p id="p4">第四段落用getElementsById。<br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore facilis facere maxime? Maxime, aliquam animi
+        voluptatibus distinctio ullam enim, soluta nesciunt laboriosam ipsa quae molestiae, atque at debitis veritatis
+        dolorem.</p>
+
+
+
+    <script>
+        function changeP() {
+            // 變更document內的body全部內容
+            //document.body.innerHTML = 'Hello'; 
+
+            // 只變更p的內容
+            document.querySelector('p').innerHTML = 'Hello 1';
+            // document.getElementsByTagName('p').innerHTML = 'Hello';
+            // 若用getElementsByTagName取p的話，會失敗，因為getElementsByTagName的結果是集合陣列物件(collection)
+            // 修改getElementsByTagName的做法
+            document.getElementsByTagName('p')[1].innerHTML = 'Hello 2';
+
+            // getElementsByClassName的結果也是collection
+            document.getElementsByClassName('p3')[0].innerHTML = 'Hello 3';
+
+            document.getElementById('p4').innerHTML = 'Hello 4';
+
+            // 結論，可以用多種方法取得結果ById, ByClass, ByTagName, querySelector,只是要知道各方法怎麼用
+        }
+    </script>
+</body>
+
+</html>

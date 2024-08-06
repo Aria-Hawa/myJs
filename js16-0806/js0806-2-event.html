@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        marquee {
+            background-image: linear-gradient(to right, #ff9f9f, #fcfc89);
+            font-weight: 600;
+            color: rgb(77, 77, 111);
+            border: 1px solid red;
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 跑馬燈文字效果 -->
+    <marquee behavior="scroll" direction="right" onmouseover="stop();" onmouseout="start();" scrollamount="13">
+        跑馬燈文字效果
+    </marquee>
+    <br>
+    <form action=""> <!-- submit送出的資料送到action設定的地方 -->
+        <label for="">帳號</label>
+        <input type="text" id="uid" required>
+
+        <label for="" id="upw" required>密碼</label>
+        <input type="text">
+
+        <!-- <input type="submit" value="送出1"> -->
+        <button onclick="chkData();">送出2</button>
+    </form>
+
+    <script>
+        function chkData() {
+            alert('hi');
+        }
+    </script>
+</body>
+
+</html>
