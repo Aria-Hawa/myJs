@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 當游標離開文字方塊時，檢查輸入的內容不足5個字時，顯示提示訊息 -->
+    <form action>
+        <label for="userId">會員編號</label>
+        <!-- size =>設定文字方塊寬度 -->
+        <!-- maxlength =>限定最大字數 -->
+        <input type="text" id="userId" size="10" maxlength="5"><br>
+        <label for="userTel">手機號碼</label>
+        <input type="text" id="userTel" size="10" maxlength="10"><br>
+
+        <span id="errMsg" style="color: red;"></span><br> <!-- 不足5個字，顯示err -->
+        <input type="button" value="送出"><br>
+    </form>
+
+    <script>
+        let getUserId = document.getElementById('userId');
+        
+        getUserId.addEventListener('blur', () => {
+            // 取得顯示訊息的位子
+            let getErrMsg = document.getElementById('errMsg');
+            // 預設getErrMsg的內容為空字串
+            getErrMsg.textContent = "";
+            // console.log(getErrMsg);
+            // console.log(getUserId.value.length);
+            // 檢查文字方塊內容是否有5個字
+            if (getUserId.value.length != 5) {
+                // 若沒有，則把提醒訊息推給getErrMsg
+                getErrMsg.textContent = "會員編號必須是5個字";
+            } else {
+                // 若有5個字，則將getErrmsy內容清空
+                getErrMsg.textContent = "";
+            }
+        });
+
+        let getUserTel = document.getElementById('userTel');
+        getUserTel.addEventListener('blur', () => {
+            let getErrMsg = document.getElementById('errMsg');
+            getErrMsg.textContent = "";
+            if (getUserTel.value.length != 10) {
+                getErrMsg.textContent = "手機號碼必須是5個字";
+            } else {
+                getErrMsg.textContent = "";
+            }
+        });
+
+        </script>
+</body>
+
+</html>

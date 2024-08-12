@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 調用被選取目標的"內建屬性" -->
+    <button id="btn1">顯示訊息</button>
+
+    <script>
+        let getBtn1 = document.getElementById('btn1');
+
+        // 習慣用e代表event物件(事件物件)
+        // 某個事件下產生的物件用參數e來傳達
+        getBtn1.addEventListener('click', function (e) {
+            alert('早安');
+
+            // 顯示event物件中的所有資訊
+            console.log(e);
+
+            // 取得事件類型(名稱)
+            console.log(e.type);
+            
+            // 取得按鈕上的文字
+            // 按鈕上的文字，躲在e裡面的target裡面的innerHTML裡面(可以用console.log(e);去找)
+            console.log(e.target.innerHTML);
+        });
+    </script>
+
+</body>
+
+</html>

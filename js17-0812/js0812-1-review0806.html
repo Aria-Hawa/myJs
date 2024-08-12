@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 事件運作方法 -->
+    <!-- 方法1: 程式敘述寫在標籤內的事件中 -->
+    <button onclick="alert('顯示訊息1');">顯示訊息1</button>
+
+    <!-- 方法2: 呼叫函式 -->
+    <script>
+        function sayHi() {
+            alert('顯示訊息2');
+        }
+    </script>
+    <button onclick="sayHi();">顯示訊息2</button>
+
+    <!-- 方法3: 監聽函式事件(立即執行的函式callback function) -->
+    <button id="btn3">顯示訊息3</button>
+    <script>
+        let getBtn3 = document.querySelector('#btn3');
+        // console.log(getBtn3);
+        getBtn3.addEventListener('click', () => {
+            alert('顯示訊息3');
+        });
+    </script>
+
+    <!-- 方法4: 呼叫事件(比較少用) -->
+    <button id="btn4">顯示訊息4</button>
+    <script>
+        // 使用querySelector的壞處是，無法帶入標籤對應的事件名稱，onclick要自己完整首key出來
+        // let getBtn4 = document.querySelector('#btn4');
+        // getBtn4.onclick = sayHi2;
+
+        // 使用getElementById的好處是，可以帶入標籤對應的事件名稱，onclick可以用選的
+        let getBtn4 = document.getElementById('btn4');
+
+        // 注意!!!使用這種方法的時候，事件後面不用加上()
+        // getBtn4.onclick = sayHi2();
+        getBtn4.onclick=sayHi2;
+        function sayHi2() {
+            alert('顯示訊息4');
+        }
+
+        // 上方寫法可以改用呼叫函式
+        // getBtn4.onclick=()=>{
+        //     alert('顯示訊息4');
+        // }
+    </script>
+
+</body>
+
+</html>
