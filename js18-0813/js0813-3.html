@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 900px;
+            height: 700px;
+            background-image: url(https://cdn.pixabay.com/photo/2024/05/24/19/06/bird-8785666_1280.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 換圖效果 -->
+    <div class="wrap" onmousedown="changeImg()" onmouseup="restore()"></div>
+
+    <script>
+        let getDiv = document.querySelector('.wrap');
+        function changeImg() {
+            getDiv.style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2024/07/29/02/28/snake-8928741_1280.jpg)'
+        }
+
+        function restore() {
+            getDiv.style.backgroundImage = 'url(https://cdn.pixabay.com/photo/2024/05/24/19/06/bird-8785666_1280.jpg)'
+        }
+    </script>
+</body>
+
+</html>

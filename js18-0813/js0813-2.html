@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            margin: 30px;
+            width: 100px;
+            height: 200px;
+        }
+
+        #showColor {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="showColor" style="border: 1px solid black;"></div>
+        <button onclick="changeRed()">紅</button>
+        <button onclick="changeYellow()">黃</button>
+        <button onclick="changeGreen()">綠</button>
+        <hr>
+        <button onclick="changeColor('o')">橘</button>
+        <button onclick="changeColor('b')">藍</button>
+        <button onclick="changeColor('p')">紫</button>
+    </div>
+
+    <script>
+        let showColor = document.getElementById('showColor');
+        function changeRed() {
+            showColor.style.backgroundColor = 'red';
+        }
+
+        function changeYellow() {
+            showColor.style.backgroundColor = 'yellow';
+        }
+
+        function changeGreen() {
+            showColor.style.backgroundColor = 'green';
+        }
+
+        // 整合函式方法，優化，傳參數
+        function changeColor(myColor) {
+            switch (myColor) {
+                case 'o':
+                    showColor.style.backgroundColor = 'orange';
+                    break;
+                case 'b':
+                    showColor.style.backgroundColor = 'blue';
+                    break;
+                case 'p':
+                    showColor.style.backgroundColor = 'purple';
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

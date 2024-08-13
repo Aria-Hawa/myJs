@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: 32px;
+            color: red;
+        }
+
+        .hot {
+            font-size: 48px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 使用style屬性 -->
+    <!-- 寫在html標籤裡面的style稱之為"行內樣式" -->
+    <p id="msg" onmouseover="changeColor()" onmouseout="restore()">Hello</p>
+
+    <script>
+        // 滑鼠碰到時變色
+        function changeColor(){
+            // 取得段落變色的目標標籤
+            let msg = document.getElementById('msg');
+            // 前景色
+            msg.style.color = 'blue';
+            // 背景色
+            msg.style.backgroundColor = 'yellow';
+            // 套用css預先做好的樣式類別(class="hot")
+            msg.className = 'hot';
+        }
+
+        // 滑鼠離開時還原色彩
+        function restore() {
+            let msg = document.getElementById('msg');
+            // style值空字串，代表回到沒有任何事件前的狀態(即代表最初預設值/最初設定的Style樣式)
+            msg.style.color = '';
+            msg.style.backgroundColor = '';
+            msg.className = '';
+        }
+
+    </script>
+
+
+</body>
+
+</html>
