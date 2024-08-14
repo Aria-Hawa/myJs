@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 線上時鐘 -->
+    <div id="clock"></div>
+    <button type="button" id="btn">停止時鐘</button>
+
+    <script>
+        // load事件 = 網頁載入時
+        window.addEventListener('load', function () {
+            // 每隔1000毫秒(1秒)要執行的事情(function)
+            let timer = window.setInterval(function () {
+                // 取得clock標籤
+                let clock = document.getElementById('clock');
+                // 更新時間
+                clock.textContent = '目前時間：' + (new Date()).toLocaleString();
+                // 只有寫new Date()的顯示資訊過多(包含時區，年月日...)
+                // 透過toLocalString()只顯示年月日+時間
+            }, 1000)
+
+            // 停止時間
+            let btn = document.getElementById('btn');
+            btn.addEventListener('click', function () {
+                // clearInterval括號內的名稱是剛剛setInterval設定的
+                window.clearInterval(timer);
+            })
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="chooseWebsite">選擇網站</label>
+        <select name="chooseWebsite" id="chooseWebsite">
+            <!-- 聰明作法，把網址寫在value裡面 -->
+            <option value="">請選擇</option>
+            <option value="https://www.google.com/">Google</option>
+            <option value="https://tw.yahoo.com/">Yahoo</option>
+            <option value="https://www.bing.com/">Bing</option>
+        </select>
+    </form>
+    <br>
+    <form action="" id="agreeContract">
+        <label for="agree"></label>
+        <input type="checkbox" name="agree" id="">我同意合約
+        <br>
+        <input type="submit" name="agreeBtn" id="agreeBtn" value="提交">
+    </form>
+
+    <script>
+        let getSelect = document.getElementById('chooseWebsite');
+        getSelect.addEventListener('change', function () {
+            location.href = getSelect.value
+        })
+
+    </script>
+</body>
+
+</html>

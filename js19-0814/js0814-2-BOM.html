@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="myform">
+        <label for="username">姓名</label>
+        <input type="text" name="username" id="username">
+        <input type="submit" name="">
+    </form>
+    <br>
+    <button id="delbtn">刪除localStorage的Username項目</button>
+    <script>
+        // 取得表單
+        let getForm = document.getElementById('myform');
+        // 觸發事件是submit，被觸發者是getForm比單
+        // 這次就不是用事件click
+        getForm.addEventListener('submit',function () {
+            // 跳出詢問視窗
+            if (window.confirm('確定要送出表單資料嗎?')){
+                // 取得姓名文字方塊
+                let getUsername = document.getElementById('username');
+                // 寫入姓名資料到localStorage備用(EX:跨頁要使用再寫)
+                window.localStorage.setItem('Username',getUsername.value);
+                alert(getUsername.value+'成功送出');
+            }else{
+                alert('取消送出');
+            }
+        });
+
+        // 刪除localStorage內的Username項目
+        let getDelbtn = document.getElementById('delbtn');
+        getDelbtn.addEventListener('click',function () {
+            if(window.confirm('確定要刪除表單資料嗎?')){
+                window.localStorage.removeItem('Username');
+                alert('刪除成功');
+            }else{
+                alert('取消刪除');
+            }
+        })
+
+    </script>
+</body>
+
+</html>

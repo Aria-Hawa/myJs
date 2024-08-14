@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        登入成功
+        <ul>
+            <li id="loginId">帳號:</li>
+            <li id="loginPw">密碼:</li>
+        </ul>
+    </div>
+
+    <script>
+        // 取得所有localStorage中的資料
+        let data = window.localStorage;
+        // console.log(data);
+
+        // 指定取出localStorage中的資料
+        let uid = window.localStorage.getItem('userId');
+        let upw = window.localStorage.getItem('userPw');
+        // let admin_id = window.localStorage.getItem('adminId');
+        // let admin_pw = window.localStorage.getItem('adminPw');
+        
+        let getLoginId = document.getElementById('loginId');
+        let getLoginPw = document.getElementById('loginPw');
+        // console.log(getLoginId);
+        getLoginId.textContent = `帳號:${uid}`;
+        getLoginPw.textContent = `密碼:${upw}`;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="chooseWebsite">選擇網站</label>
+        <select name="chooseWebsite" id="chooseWebsite">
+            <option value="">請選擇</option>
+            <option value="google">Google</option>
+            <option value="yahoo">Yahoo</option>
+            <option value="bing">Bing</option>
+        </select>
+    </form>
+    <br>
+    <form action="./new.html" id="agreeContract">
+        <input type="checkbox" name="agree" id="agree">我同意合約
+        <br>
+        <span id="errMsg"></span>
+        <br>
+        <input type="submit" name="agreeBtn" id="agreeBtn">
+    </form>
+
+    <script>
+        let getSelect = document.getElementById('chooseWebsite');
+        getSelect.addEventListener('change', function (e) {
+            // console.log(e);
+            // console.log(e.target.value);
+            if (e.target.value == 'google') {
+                window.open('https://www.google.com/', 'Google');
+            } else if (e.target.value == 'yahoo') {
+                window.open('https://tw.yahoo.com/', 'Yahoo');
+            } else if (e.target.value == 'bing') {
+                window.open('https://www.bing.com/', 'bing');
+            }
+        })
+
+        let getAgree = document.getElementById('agreeContract');
+        let getSpan = document.getElementById('errMsg');
+        let agree = document.getElementById('agree');
+        getAgree.addEventListener('submit',function (e) {
+            if(!agree.checked){
+                getSpan.textContent = '必須核取「我同意合約」';
+                getSpan.style.color = 'red';
+                // 取消預設行為(不執行表單action的動作)
+                e.preventDefault();
+            }
+        });
+
+    </script>
+</body>
+
+</html>

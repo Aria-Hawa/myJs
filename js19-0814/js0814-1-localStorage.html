@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="./js0814-1.1-login.html" target="_blank">
+        <label for="uid">帳號</label>
+        <input type="text" id="uid">
+        <br>
+        <label for="upw">密碼</label>
+        <input type="text" id="upw">
+        <br>
+        <!-- 登入1按鈕搭配submit和action跳轉到其他頁面 -->
+        <input type="submit" value="登入1" id="btn" onclick="storageMsg()">
+        <!-- 登入2按鈕使用button -->
+        <input type="button" value="登入2" id="btn2">
+    </form>
+
+
+    <!-- 存放資料在本機端瀏覽器中的Local storage -->
+    <script>
+        // 登入1按鈕
+        let getUid = document.getElementById('uid');
+        let getUpw = document.getElementById('upw');
+        function storageMsg() {
+            // 寫入到local storage
+            window.localStorage.setItem('userId', getUid.value);
+            window.localStorage.setItem('userPw', getUpw.value);
+        }
+
+        let btn2 = document.getElementById('btn2');
+        let admin_id = window.localStorage.getItem('adminId');
+        let admin_pw = window.localStorage.getItem('adminPw');
+        btn2.addEventListener('click', function () {
+            // 檢查是否為管理者帳密
+            if (getUid.value != admin_id) {
+                alert('管理者帳號錯誤');
+            } else if (getUpw.value != admin_pw) {
+                alert('管理者密碼錯誤');
+            } else if (getUid.value == admin_id && getUpw.value == admin_pw) {
+                window.location.href = './js0814-1.1-login.html';
+            }
+        })
+
+
+        // 清除
+        // window.localStorage.clear();
+        // // 寫入
+        // // window小寫w，setItem內第一個寫變數名稱，第二個寫值
+        // window.localStorage.setItem('a1','3');
+        // window.localStorage.setItem('a2','5');
+        // window.localStorage.setItem('a3','8');
+        window.localStorage.setItem('adminId', 'admin001');
+        window.localStorage.setItem('adminPw', 'admin001');
+    </script>
+</body>
+
+</html>
